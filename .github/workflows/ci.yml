@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send Discord Embed
+      - name: Send Discord Notification
         env:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
