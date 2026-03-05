@@ -6,7 +6,7 @@ export const siteConfig = {
   url: "https://rahmathidayat.vercel.app",
   links: {
     github: "https://github.com/fliyyer",
-    linkedin: "https://www.linkedin.com/in/rahmat-hidayat",
-    email: "mailto:rahmathidayat290915@gmail.com"
-  }
+    linkedin: "https://www.linkedin.com/in/rahmat-hidayat29",
+    email: "mailto:rahmathidayat290915@gmail.com",
+  },
 };

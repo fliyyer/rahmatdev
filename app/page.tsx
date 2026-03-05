@@ -7,10 +7,15 @@ import { Separator } from "@/components/ui/separator";
 import { getAllBlogPosts, getAllProjects } from "@/lib/mdx";
 
 export default async function HomePage() {
-  const [posts, projects] = await Promise.all([getAllBlogPosts(), getAllProjects()]);
+  const [posts, projects] = await Promise.all([
+    getAllBlogPosts(),
+    getAllProjects(),
+  ]);
 
   const featuredPosts = posts.slice(0, 2);
-  const featuredProjects = projects.filter((project) => project.featured).slice(0, 2);
+  const featuredProjects = projects
+    .filter((project) => project.featured)
+    .slice(0, 2);
 
   return (
     <>
@@ -44,19 +49,6 @@ export default async function HomePage() {
             <ProjectCard key={project.slug} project={project} />
           ))}
         </div>
-      </section>
-
-      <Separator />
-
-      <section className="space-y-4 py-10">
-        <h2 className="text-3xl font-semibold">About</h2>
-        <p className="text-lg leading-relaxed text-muted-foreground">
-          Frontend engineer with 2+ years of experience delivering production web products in logistics, real estate,
-          and digital media. I focus on scalable interfaces, performance, and clear user experiences.
-        </p>
-        <Button asChild variant="outline">
-          <Link href="/about">Read Full Bio</Link>
-        </Button>
       </section>
     </>
   );
