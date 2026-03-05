@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 48 33% 98%;
+  --foreground: 30 10% 13%;
+  --card: 0 0% 100%;
+  --card-foreground: 30 10% 13%;
+  --primary: 26 65% 32%;
+  --primary-foreground: 40 60% 98%;
+  --muted: 40 20% 94%;
+  --muted-foreground: 30 8% 35%;
+  --border: 30 12% 84%;
+  --input: 30 12% 84%;
+  --ring: 26 65% 32%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 30 10% 10%;
+  --foreground: 42 22% 94%;
+  --card: 30 12% 14%;
+  --card-foreground: 42 22% 94%;
+  --primary: 35 75% 66%;
+  --primary-foreground: 30 15% 10%;
+  --muted: 25 10% 20%;
+  --muted-foreground: 35 10% 72%;
+  --border: 30 10% 28%;
+  --input: 30 10% 28%;
+  --ring: 35 75% 66%;
+}
+
+* {
+  @apply border-border;
+}
+
+body {
+  @apply bg-background text-foreground antialiased;
+  font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.prose pre {
+  @apply rounded-md border border-border;
+}
+
+.prose code:not(pre code) {
+  @apply rounded bg-muted px-1.5 py-0.5;
+}

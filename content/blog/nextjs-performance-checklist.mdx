@@ -1,0 +1,24 @@
+---
+title: "Next.js Performance Checklist for Real Projects"
+description: "A practical checklist to improve loading speed and runtime performance in Next.js apps."
+date: "2026-01-10"
+published: true
+---
+
+Performance is easier to maintain when teams use a repeatable checklist.
+
+## Eliminate waterfalls
+
+Trigger independent requests in parallel with `Promise.all` and await them close to usage.
+
+## Reduce client bundle size
+
+Prefer server components, import only what is needed, and use dynamic imports for expensive UI blocks.
+
+## Protect user-perceived speed
+
+Prioritize above-the-fold content and defer non-critical scripts. Measure web vitals continuously after deployment.
+
+## Validate in production
+
+Local performance can be misleading. Always verify real-user metrics in production telemetry.

@@ -1,0 +1,28 @@
+---
+title: "Building Scalable React Architecture in Product Teams"
+description: "How to keep React codebases maintainable as products and teams grow."
+date: "2026-02-18"
+published: true
+---
+
+Modern React applications grow quickly. Without structure, feature delivery slows and bugs spread across modules.
+
+## Start with bounded features
+
+Organize code by feature domains instead of technical folders. A feature-first structure makes ownership clearer and lowers regression risk when teams scale.
+
+## Keep Server Components as default
+
+In Next.js App Router, render data-heavy views on the server and move only interactive pieces to client components. This reduces bundle size and keeps pages responsive.
+
+### Practical rule
+
+If a component does not need browser APIs, keep it as a server component.
+
+## Optimize for readability first
+
+A readable codebase is easier to optimize than a clever one. Use explicit names, predictable patterns, and small components.
+
+## Add tests to critical flows
+
+Start with integration tests for key user flows. This keeps releases safe while teams move faster.
