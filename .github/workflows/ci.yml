@@ -14,15 +14,64 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          set -euo pipefail
+
+          if [ -z "${DISCORD_WEBHOOK:-}" ]; then
+            echo "DISCORD_WEBHOOK is not set, skipping notification."
+            exit 0
+          fi
+
           ACTOR="${{ github.actor }}"
           REPO="${{ github.repository }}"
           BRANCH="${{ github.ref_name }}"
           COMMIT_MSG="${{ github.event.head_commit.message }}"
           COMMIT_SHA="${{ github.sha }}"
-          COMMIT_URL="${{ github.event.compare }}"
+          SHORT_SHA="$(echo "$COMMIT_SHA" | cut -c1-7)"
+          COMPARE_URL="${{ github.event.compare }}"
+          COMMIT_LINK="https://github.com/$REPO/commit/$COMMIT_SHA"
+          REPO_LINK="https://github.com/$REPO"
+          ACTOR_LINK="https://github.com/$ACTOR"
+          RUN_LINK="https://github.com/$REPO/actions/runs/${{ github.run_id }}"
 
-          curl -H "Content-Type: application/json" \
-          -d "{
-            \"content\": \"✅ **$ACTOR pushed to branch $BRANCH**\\nRepository: $REPO\\nCommit: $COMMIT_SHA\\nMessage: $COMMIT_MSG\\nCompare: $COMMIT_URL\"
-          }" \
-          $DISCORD_WEBHOOK
+          PAYLOAD=$(jq -n \
+            --arg actor "$ACTOR" \
+            --arg actor_link "$ACTOR_LINK" \
+            --arg repo "$REPO" \
+            --arg repo_link "$REPO_LINK" \
+            --arg branch "$BRANCH" \
+            --arg commit_msg "$COMMIT_MSG" \
+            --arg short_sha "$SHORT_SHA" \
+            --arg commit_link "$COMMIT_LINK" \
+            --arg compare_url "$COMPARE_URL" \
+            --arg run_link "$RUN_LINK" \
+            --arg ts "$(date -u +"%Y-%m-%dT%H:%M:%SZ")" \
+            '{
+              "username": "GitHub Bot",
+              "avatar_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+              "embeds": [
+                {
+                  "title": "✅ New Push Event",
+                  "description": "A new commit has been pushed.",
+                  "color": 5814783,
+                  "url": $compare_url,
+                  "fields": [
+                    { "name": "Repository", "value": ("[" + $repo + "](" + $repo_link + ")"), "inline": true },
+                    { "name": "Branch", "value": ("`" + $branch + "`"), "inline": true },
+                    { "name": "Actor", "value": ("[" + $actor + "](" + $actor_link + ")"), "inline": true },
+                    { "name": "Commit", "value": ("[`" + $short_sha + "`](" + $commit_link + ")"), "inline": true },
+                    { "name": "Message", "value": $commit_msg, "inline": false },
+                    { "name": "Compare Changes", "value": ("[Open Compare Link](" + $compare_url + ")"), "inline": false },
+                    { "name": "Workflow Run", "value": ("[Open Action Run](" + $run_link + ")"), "inline": false }
+                  ],
+                  "footer": {
+                    "text": "GitHub Actions • Push Notification"
+                  },
+                  "timestamp": $ts
+                }
+              ]
+            }')
+
+          curl -sS -X POST \
+            -H "Content-Type: application/json" \
+            -d "$PAYLOAD" \
+            "$DISCORD_WEBHOOK"
