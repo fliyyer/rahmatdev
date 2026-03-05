@@ -1,21 +1,28 @@
-name: CI
+name: Discord Notification
 
 on:
   push:
-    branches: [main]
+    branches:
+      - "**"
 
 jobs:
-  build:
+  notify:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Run build
-        run: echo "Build Success"
-
       - name: Send Discord Notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          ACTOR="${{ github.actor }}"
+          REPO="${{ github.repository }}"
+          BRANCH="${{ github.ref_name }}"
+          COMMIT_MSG="${{ github.event.head_commit.message }}"
+          COMMIT_SHA="${{ github.sha }}"
+          COMMIT_URL="${{ github.event.compare }}"
+
           curl -H "Content-Type: application/json" \
-          -d "{\"content\":\"🚀 New push to main by ${{ github.actor }}\"}" \
-          ${{ secrets.DISCORD_WEBHOOK }}
+          -d "{
+            \"content\": \"✅ **$ACTOR pushed to branch $BRANCH**\\nRepository: $REPO\\nCommit: $COMMIT_SHA\\nMessage: $COMMIT_MSG\\nCompare: $COMMIT_URL\"
+          }" \
+          $DISCORD_WEBHOOK
