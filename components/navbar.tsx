@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/blog", label: "Blog" },
   { href: "/projects", label: "Projects" },
+  { href: "/services", label: "Services" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" }
 ];
@@ -18,8 +19,8 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-prose items-center justify-between px-4">
-        <Link href="/" className="text-base font-semibold tracking-tight">
-          Rahmat Hidayat
+        <Link href="/" className="text-2xl font-semibold tracking-tight">
+          Rahmatdev.
         </Link>
 
         <nav className="hidden items-center gap-5 md:flex">
@@ -32,14 +33,6 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          <Link
-            href="https://github.com/fliyyer"
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </Link>
           <ThemeToggle />
         </nav>
 
@@ -60,14 +53,6 @@ export function Navbar() {
                     </Link>
                   </SheetClose>
                 ))}
-                <Link
-                  href="https://github.com/fliyyer"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-base font-medium"
-                >
-                  GitHub
-                </Link>
               </div>
             </SheetContent>
           </Sheet>

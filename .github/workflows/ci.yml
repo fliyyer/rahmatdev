@@ -10,19 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Send Discord Notification
+      - name: Send Discord Embed
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
-          ACTOR="${{ github.actor }}"
-          REPO="${{ github.repository }}"
-          BRANCH="${{ github.ref_name }}"
-          COMMIT_MSG="${{ github.event.head_commit.message }}"
-          COMMIT_SHA="${{ github.sha }}"
-          COMMIT_URL="${{ github.event.compare }}"
-
           curl -H "Content-Type: application/json" \
-          -d "{
-            \"content\": \"✅ **$ACTOR pushed to branch $BRANCH**\\nRepository: $REPO\\nCommit: $COMMIT_SHA\\nMessage: $COMMIT_MSG\\nCompare: $COMMIT_URL\"
-          }" \
+          -d '{
+            "embeds": [{
+              "title": "🚀 New Push",
+              "color": 5814783,
+              "fields": [
+                {"name": "Author", "value": "${{ github.actor }}", "inline": true},
+                {"name": "Branch", "value": "${{ github.ref_name }}", "inline": true},
+                {"name": "Repository", "value": "${{ github.repository }}", "inline": false},
+                {"name": "Commit", "value": "${{ github.event.head_commit.message }}", "inline": false}
+              ]
+            }]
+          }' \
           $DISCORD_WEBHOOK
