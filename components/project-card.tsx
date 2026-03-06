@@ -6,8 +6,8 @@ import { ProjectMeta } from "@/lib/mdx";
 
 export function ProjectCard({ project }: { project: ProjectMeta }) {
   return (
-    <Card className="border-none shadow-none">
-      <CardHeader className="px-0 pb-4">
+    <Card className="shadow-none">
+      <CardHeader className="px-4 pb-4">
         <CardTitle className="text-2xl">
           <Link href={`/projects/${project.slug}`} className="hover:underline">
             {project.title}
@@ -15,7 +15,7 @@ export function ProjectCard({ project }: { project: ProjectMeta }) {
         </CardTitle>
         <CardDescription className="text-base leading-relaxed">{project.description}</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4 px-0">
+      <CardContent className="space-y-4 px-4">
         <div className="flex flex-wrap gap-2">
           {project.techStack.map((tech) => (
             <Badge key={tech} variant="outline">
