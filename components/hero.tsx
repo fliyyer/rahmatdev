@@ -16,7 +16,7 @@ export function Hero() {
             I build clean and scalable web applications with React and Next.js.
           </p>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Frontend engineer with 2+ years of experience delivering production
+            Frontend engineer with 3+ years of experience delivering production
             web products in logistics, real estate, and digital media. I focus
             on scalable interfaces, performance, and clear user experiences.
           </p>

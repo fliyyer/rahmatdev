@@ -17,7 +17,7 @@ jobs:
           curl -H "Content-Type: application/json" \
           -d '{
             "embeds": [{
-              "title": "🚀 New Push to ${github.ref_name}",
+              "title": "✅ New Push",
               "color": 5814783,
               "fields": [
                 {"name": "Author", "value": "${{ github.actor }}", "inline": true},
