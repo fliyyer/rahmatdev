@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { MdxContent } from "@/components/mdx-content";
+import { ImageWithLoading } from "@/components/ui/image-with-loading";
 import { Badge } from "@/components/ui/badge";
 import { getAllProjects, getProjectBySlug } from "@/lib/mdx";
 
@@ -58,12 +58,13 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
       </header>
 
       <div className="overflow-hidden rounded-lg border">
-        <Image
+        <ImageWithLoading
           src={project.frontmatter.previewImage}
           alt={project.frontmatter.title}
           width={1280}
           height={720}
-          className="h-auto w-full object-cover"
+          containerClassName="aspect-video w-full"
+          className="h-full w-full object-cover"
         />
       </div>
 
