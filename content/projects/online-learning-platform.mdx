@@ -1,0 +1,96 @@
+---
+title: "Online Learning Management System"
+description: "Platform pembelajaran online untuk manajemen kelas, materi, kuis, progress belajar, dan interaksi mentor-student dalam satu aplikasi web."
+techStack:
+  - React JS
+  - Tailwind CSS
+  - TanStack Query
+  - Express JS
+previewImage: "/porto/lms-1.png"
+featured: true
+---
+
+Platform ini dikembangkan untuk membantu proses belajar mengajar berjalan lebih terstruktur, interaktif, dan mudah diakses dari berbagai perangkat. Fokus utamanya adalah menyatukan kebutuhan admin, mentor, dan student dalam satu sistem yang efisien.
+
+## Project Overview
+
+Online Learning Management System (LMS) ini memiliki 3 peran utama:
+
+1. Admin: mengelola course, kategori, user, dan monitoring aktivitas platform.
+2. Mentor: membuat materi, modul, kuis, serta memantau progres peserta.
+3. Student: mengakses materi, mengerjakan kuis, dan melihat progres belajar secara real-time.
+
+Tujuan dari produk ini adalah meningkatkan experience pembelajaran digital dengan alur yang jelas, UI yang ramah pengguna, dan performa data yang responsif.
+
+## Key Features
+
+### Course & Module Management
+
+- Admin dan mentor dapat membuat struktur course menjadi beberapa modul.
+- Setiap modul dapat berisi video, dokumen, ringkasan materi, dan resource pendukung.
+- Materi disusun berurutan agar alur belajar peserta lebih terarah.
+
+### Quiz and Assessment
+
+- Mendukung pembuatan kuis per modul dengan beberapa tipe soal.
+- Sistem scoring otomatis untuk mempercepat evaluasi.
+- Hasil kuis ditampilkan langsung agar student bisa mengukur pemahaman mereka.
+
+### Progress Tracking Dashboard
+
+- Student dapat melihat persentase penyelesaian course.
+- Mentor dapat memantau progres seluruh peserta pada tiap modul.
+- Admin mendapatkan ringkasan performa course untuk evaluasi konten.
+
+### Authentication and Role-Based Access
+
+- Login dan akses halaman dibatasi berdasarkan role user.
+- Setiap role memiliki menu dan permission berbeda untuk menjaga keamanan data.
+- Route dan endpoint dilindungi agar tidak bisa diakses role yang tidak berhak.
+
+### Responsive Learning Interface
+
+- Tampilan dioptimalkan untuk desktop dan mobile.
+- Navigasi materi dibuat simpel agar user bisa fokus belajar.
+- Komponen UI konsisten untuk mempercepat adaptasi pengguna baru.
+
+## Tech Stack Implementation
+
+### React JS (Frontend)
+
+React digunakan untuk membangun antarmuka yang modular dan reusable. Setiap fitur seperti daftar course, detail materi, kuis, dan dashboard dipisah menjadi komponen-komponen kecil agar mudah dikembangkan dan dirawat.
+
+### Tailwind CSS (Styling)
+
+Tailwind CSS dipakai untuk mempercepat pengembangan UI dengan pendekatan utility-first. Hasilnya adalah styling yang konsisten, responsif, dan mudah disesuaikan untuk kebutuhan branding platform.
+
+### TanStack Query (Server State Management)
+
+TanStack Query menangani proses fetching, caching, sinkronisasi, dan invalidasi data dari server. Ini membantu aplikasi tetap responsif saat user berpindah halaman, submit kuis, atau memuat data progres belajar.
+
+Penerapan utamanya meliputi:
+
+- Caching data course dan modul untuk mengurangi request berulang.
+- Mutation untuk submit kuis dan update progress.
+- Refetch terkontrol agar data tetap fresh tanpa mengorbankan performa.
+
+### Express JS (Backend API)
+
+Express JS digunakan untuk membangun REST API yang menangani autentikasi, manajemen course, kuis, dan progress student. Struktur endpoint dirancang terpisah per domain fitur sehingga lebih mudah dikembangkan ke depannya.
+
+## Performance and Maintainability
+
+- Pemisahan komponen frontend berdasarkan domain fitur.
+- Query key yang terstruktur untuk menjaga konsistensi data cache.
+- Validasi input di backend untuk memastikan integritas data.
+- Arsitektur API modular agar scaling fitur berikutnya lebih cepat.
+
+## UI Preview
+
+![LMS Dashboard](/porto/lms-1.png)
+
+![LMS Course View](/porto/lms-2.png)
+
+## Outcome
+
+Platform ini membantu proses pembelajaran online menjadi lebih terukur, terstruktur, dan mudah dipantau oleh semua pihak. Dengan kombinasi React JS, Tailwind CSS, TanStack Query, dan Express JS, aplikasi mampu memberikan pengalaman belajar yang cepat, stabil, dan siap dikembangkan untuk skala yang lebih besar.

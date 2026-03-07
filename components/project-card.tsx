@@ -23,15 +23,17 @@ export function ProjectCard({ project }: { project: ProjectMeta }) {
             </Badge>
           ))}
         </div>
-        <Link
-          href={project.githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-        >
-          View on GitHub
-          <ArrowUpRight className="h-3.5 w-3.5" />
-        </Link>
+        {project.githubUrl ? (
+          <Link
+            href={project.githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+          >
+            View on GitHub
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+        ) : null}
       </CardContent>
     </Card>
   );

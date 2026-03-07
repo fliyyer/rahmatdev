@@ -18,7 +18,7 @@ export type ProjectFrontmatter = {
   title: string;
   description: string;
   techStack: string[];
-  githubUrl: string;
+  githubUrl?: string;
   previewImage: string;
   featured: boolean;
 };
