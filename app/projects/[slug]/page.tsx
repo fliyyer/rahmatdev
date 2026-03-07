@@ -63,6 +63,8 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
           alt={project.frontmatter.title}
           width={1280}
           height={720}
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1280px"
           containerClassName="aspect-video w-full"
           className="h-full w-full object-cover"
         />

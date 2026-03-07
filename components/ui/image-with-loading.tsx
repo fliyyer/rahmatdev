@@ -13,7 +13,7 @@ export function ImageWithLoading({ containerClassName, className, alt, ...props 
   const [loaded, setLoaded] = useState(false);
   const width = typeof props.width === "number" ? props.width : undefined;
   const src = typeof props.src === "string" ? toNetlifyImageCdn(props.src, { width }) : props.src;
-  const useCdn = typeof props.src === "string" && props.src.startsWith("/porto/");
+  const useCdn = typeof src === "string" && src.startsWith("/.netlify/images?");
 
   return (
     <div className={cn("relative", containerClassName)}>
