@@ -1,0 +1,151 @@
+---
+title: "ATLAS Ekspedisi"
+description: "Website perusahaan ekspedisi dengan fitur trace & track, artikel, dan membership pelanggan yang dibangun menggunakan Next.js App Router."
+techStack:
+  - Next.js (App Router)
+  - TypeScript
+  - Tailwind CSS
+  - REST API
+  - MySQL
+previewImage: "/porto/atlas/atlas-1.png"
+featured: true
+---
+
+ATLAS Ekspedisi adalah website perusahaan logistik yang dirancang untuk memudahkan pelanggan mengakses layanan pengiriman secara online. Fokus utama proyek ini adalah menyediakan alur digital yang jelas untuk pelacakan pengiriman, eksplorasi informasi layanan, serta peningkatan loyalitas pelanggan melalui program membership.
+
+Antarmuka dibuat modern, cepat, dan responsif agar tetap nyaman digunakan baik di desktop maupun mobile. Secara visual, website mempertahankan identitas brand ATLAS dengan dominasi warna merah-putih yang tegas dan profesional.
+
+## Gambaran Proyek
+
+Website ini berfungsi sebagai pusat layanan digital ATLAS Ekspedisi, dengan alur pengguna yang menekankan kemudahan akses informasi dan transparansi status pengiriman.
+
+Pengguna dapat:
+
+- Melacak status kiriman dengan nomor resi (trace & track)
+- Melihat detail layanan dan cakupan area pengiriman
+- Membaca artikel dan update event perusahaan
+- Mendaftar serta mengelola akun membership
+- Mengakses FAQ dan kontak untuk kebutuhan bantuan
+
+## Fitur Utama
+
+### 1. Landing Page Berorientasi Konversi
+
+Halaman beranda menampilkan informasi inti layanan secara cepat dan terstruktur, termasuk CTA untuk mulai pengiriman atau melacak paket.
+
+Komponen utamanya meliputi:
+
+- Hero section dengan value proposition layanan
+- Ringkasan area operasional (contoh: Surabaya, Bali, Jakarta)
+- Shortcut ke fitur penting seperti tracking dan membership
+- Informasi keunggulan layanan untuk meningkatkan trust
+
+### 2. Trace & Track Pengiriman
+
+Fitur pelacakan memungkinkan pelanggan memantau progres paket secara real-time berdasarkan nomor resi.
+
+Informasi yang ditampilkan antara lain:
+
+- Data pengirim dan penerima
+- Alamat tujuan pengiriman
+- Jumlah koli/barang
+- Status pengiriman terkini
+- Riwayat waktu update proses
+
+Fitur ini meningkatkan transparansi layanan dan mengurangi kebutuhan follow-up manual melalui customer support.
+
+### 3. Artikel dan Event
+
+Website menyediakan modul konten untuk publikasi artikel, tips pengiriman, edukasi bisnis, dan event terbaru perusahaan.
+
+Kapabilitas utama:
+
+- Daftar artikel dengan struktur kategori
+- Pencarian artikel
+- Halaman detail artikel
+- Rekomendasi artikel terkait
+
+Konten ini mendukung strategi SEO sekaligus menjaga engagement pengguna.
+
+### 4. Membership Pelanggan
+
+Sistem membership dirancang untuk meningkatkan retensi pengguna melalui benefit ongkir berdasarkan tier.
+
+Contoh tier:
+
+- **Plus Miles**: diskon ongkir hingga 20%
+- **Pro Miles**: diskon ongkir hingga 30%
+- **Elite Miles**: diskon ongkir hingga 50%
+
+Setiap tier memiliki syarat berdasarkan aktivitas transaksi pengguna.
+
+### 5. Halaman Informasi Perusahaan
+
+Halaman informasi membantu pengguna mengenal perusahaan dan mengakses bantuan dengan cepat.
+
+Ruang lingkup konten:
+
+- Tentang kami
+- FAQ
+- Kontak
+- Detail layanan
+
+## Implementasi Teknis
+
+### Next.js App Router
+
+Aplikasi frontend dibangun menggunakan **Next.js App Router** untuk mendapatkan struktur routing yang lebih modular, dukungan server component, dan performa rendering yang baik.
+
+Penerapan App Router pada proyek ini mencakup:
+
+- Segmentasi halaman berdasarkan fitur (tracking, artikel, membership)
+- Pemisahan komponen server/client sesuai kebutuhan interaktivitas
+- Pengelolaan metadata halaman untuk kebutuhan SEO
+
+### TypeScript
+
+TypeScript digunakan agar pengembangan lebih aman dan konsisten, terutama untuk typing data pengiriman, artikel, user, dan membership.
+
+### Tailwind CSS
+
+Tailwind CSS mempercepat proses styling dengan pendekatan utility-first, sekaligus menjaga konsistensi visual antar halaman dan komponen.
+
+### REST API Integration
+
+Aplikasi terhubung ke REST API untuk mengambil dan memperbarui data operasional, meliputi:
+
+- Data pengiriman
+- Data artikel
+- Data akun pengguna
+- Data membership
+
+### MySQL
+
+MySQL digunakan sebagai basis data utama untuk menyimpan data transaksional dan konten yang dibutuhkan aplikasi.
+
+## Pendekatan UI/UX
+
+Desain dibuat dengan prioritas pada kejelasan informasi, kecepatan akses fitur utama, dan keterbacaan data tracking.
+
+Prinsip yang diterapkan:
+
+- Navigasi ringkas dan mudah dipahami
+- Hierarki informasi yang jelas
+- CTA yang terlihat pada titik interaksi penting
+- Tampilan responsif untuk berbagai ukuran layar
+
+## Preview Antarmuka
+
+![ATLAS Preview 1](/porto/atlas/atlas-1.png)
+
+![ATLAS Preview 2](/porto/atlas/atlas-2.png)
+
+![ATLAS Preview 3](/porto/atlas/atlas-3.png)
+
+![ATLAS Preview 4](/porto/atlas/atlas-4.png)
+
+![ATLAS Preview 5](/porto/atlas/atlas-5.png)
+
+## Hasil dan Pembelajaran
+
+Proyek ini memperkuat kemampuan saya dalam membangun website bisnis berbasis kebutuhan nyata, khususnya pada domain logistik dan layanan pelanggan. Saya juga meningkatkan kemampuan dalam merancang alur data tracking, mengelola integrasi API, serta membangun frontend yang scalable menggunakan Next.js App Router.
