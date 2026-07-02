@@ -23,16 +23,31 @@ export function ProjectCard({ project }: { project: ProjectMeta }) {
             </Badge>
           ))}
         </div>
-        {project.githubUrl ? (
-          <Link
-            href={project.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-          >
-            View on GitHub
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
+        {(project.liveUrl || project.githubUrl) ? (
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {project.liveUrl ? (
+              <Link
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                Visit Live Site
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            ) : null}
+            {project.githubUrl ? (
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                View on GitHub
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            ) : null}
+          </div>
         ) : null}
       </CardContent>
     </Card>

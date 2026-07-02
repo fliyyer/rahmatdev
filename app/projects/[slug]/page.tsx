@@ -44,16 +44,31 @@ export default async function ProjectDetailPage({ params }: { params: Promise<Pa
             </Badge>
           ))}
         </div>
-        {project.frontmatter.githubUrl ? (
-          <Link
-            href={project.frontmatter.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
-          >
-            Open GitHub Repository
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </Link>
+        {(project.frontmatter.liveUrl || project.frontmatter.githubUrl) ? (
+          <div className="flex flex-wrap gap-x-4 gap-y-2">
+            {project.frontmatter.liveUrl ? (
+              <Link
+                href={project.frontmatter.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                Visit Live Website
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            ) : null}
+            {project.frontmatter.githubUrl ? (
+              <Link
+                href={project.frontmatter.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+              >
+                Open GitHub Repository
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
+            ) : null}
+          </div>
         ) : null}
       </header>
 
