@@ -23,7 +23,7 @@ export default async function HomePage() {
 
       <section className="space-y-8 py-10">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-semibold">Featured Blog Posts</h2>
+          <h2 className="text-3xl font-semibold">Unggulan Postingan Blog</h2>
           <Button asChild variant="ghost">
             <Link href="/blog">All Posts</Link>
           </Button>
@@ -39,7 +39,7 @@ export default async function HomePage() {
 
       <section className="space-y-8 py-10">
         <div className="flex items-center justify-between">
-          <h2 className="text-3xl font-semibold">Featured Projects</h2>
+          <h2 className="text-3xl font-semibold">Proyek Unggulan</h2>
           <Button asChild variant="ghost">
             <Link href="/projects">All Projects</Link>
           </Button>
